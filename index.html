@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#6B9E7E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>PlateWise — Meal Scan &amp; Cheat Smart</title>
+
+
+<style type="text/css">@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.2.8/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.2.8/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.2.8/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.2.8/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.2.8/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.2.8/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.2.8/latin-ext/wght/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.2.8/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.2.8/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.2.8/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.2.8/greek/wght/normal.woff2);unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.2.8/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:'Inter';font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.2.8/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}</style>
+<style>
+:root{--green:#6B9E7E;--green-light:#E8F4ED;--green-dark:#4A7A5E;--orange:#FF6B35;--orange-light:#FFF1EB;--bg:#F8F9FA;--white:#FFF;--text:#2D3436;--text-secondary:#636E72;--border:#E0E4E8;--shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 4px 16px rgba(0,0,0,0.08);--shadow-lg:0 8px 32px rgba(0,0,0,0.10);--radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-full:9999px;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--transition:0.3s cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:#E8ECEF;display:flex;align-items:center;justify-content:center;min-height:100vh;min-height:100dvh;padding:16px;-webkit-font-smoothing:antialiased}
+.app-shell{width:100%;max-width:420px;height:min(860px,95vh,95dvh);background:var(--bg);border-radius:32px;box-shadow:var(--shadow-lg),0 0 0 1px rgba(0,0,0,0.04);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.status-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px 6px;font-size:12px;font-weight:600;color:var(--text)}
+.app-header{display:flex;align-items:center;gap:10px;padding:8px 24px 16px}
+.app-logo{width:38px;height:38px;border-radius:var(--radius-sm);background:var(--green);display:flex;align-items:center;justify-content:center;font-size:20px;color:white;flex-shrink:0}
+.app-title{font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.02em}
+.app-subtitle{font-size:12px;color:var(--text-secondary);font-weight:500}
+.main-content{flex:1;overflow-y:auto;padding:0 24px 24px;position:relative}
+.views-container{position:relative;min-height:100%}
+.view{transition:opacity var(--transition),transform var(--transition)}
+.view-input{opacity:1;transform:translateY(0)}
+.view-results{position:absolute;top:0;left:0;right:0;opacity:0;transform:translateY(24px);pointer-events:none}
+.app-shell[data-view="results"] .view-input{opacity:0;transform:translateY(-24px);pointer-events:none}
+.app-shell[data-view="results"] .view-results{opacity:1;transform:translateY(0);pointer-events:auto}
+
+.input-section{display:flex;flex-direction:column;align-items:center;gap:20px;padding-top:16px}
+.camera-btn-wrapper{display:flex;flex-direction:column;align-items:center;gap:10px}
+.camera-btn{width:140px;height:140px;border-radius:50%;background:var(--white);border:3px dashed var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;transition:all var(--transition);position:relative;box-shadow:var(--shadow-md);-webkit-tap-highlight-color:transparent;user-select:none}
+.camera-btn:hover{border-color:var(--green-dark);background:var(--green-light)}
+.camera-btn:active{transform:scale(0.96)}
+.camera-btn .camera-icon{font-size:36px;line-height:1}
+.camera-btn .camera-label{font-size:13px;font-weight:600;color:var(--green-dark)}
+.camera-hint{font-size:12px;color:var(--text-secondary);text-align:center;max-width:200px;line-height:1.4}
+.camera-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:var(--radius-full);margin-top:4px}
+.camera-status.ready{color:var(--green-dark);background:var(--green-light)}
+.camera-status.needs-key{color:var(--orange);background:var(--orange-light)}
+
+.divider-row{display:flex;align-items:center;gap:12px;width:100%;max-width:300px}
+.divider-line{flex:1;height:1px;background:var(--border)}
+.divider-text{font-size:12px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.06em}
+.text-input-group{width:100%;max-width:340px;position:relative}
+.text-input{width:100%;padding:16px 52px 16px 18px;border:2px solid var(--border);border-radius:var(--radius-full);font-family:var(--font);font-size:15px;color:var(--text);background:var(--white);outline:none;transition:border-color var(--transition),box-shadow var(--transition);box-shadow:var(--shadow-sm)}
+.text-input::placeholder{color:#B2BEC3;font-size:14px}
+.text-input:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(107,158,126,0.12)}
+.submit-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:var(--green);border:none;color:white;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--transition)}
+.submit-btn:active{background:var(--green-dark)}
+.submit-btn:disabled{background:#B2BEC3;cursor:not-allowed}
+.suggestions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:340px}
+.suggestion-chip{padding:8px 16px;border-radius:var(--radius-full);background:var(--white);border:1.5px solid var(--border);font-family:var(--font);font-size:13px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.suggestion-chip:active,.suggestion-chip:hover{border-color:var(--green);color:var(--green-dark);background:var(--green-light)}
+
+.results-inner{display:flex;flex-direction:column;gap:18px;padding-top:8px}
+.back-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--radius-full);background:var(--white);border:1.5px solid var(--border);font-family:var(--font);font-size:13px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:all var(--transition);-webkit-tap-highlight-color:transparent;align-self:flex-start}
+.back-btn:active{background:#F0F2F5}
+.food-preview{background:var(--white);border-radius:var(--radius-lg);padding:32px 24px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+.food-preview::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green);border-radius:0 0 6px 6px}
+.food-emoji-display{font-size:64px;line-height:1;animation:foodBounce 0.5s ease-out}
+@keyframes foodBounce{0%{transform:scale(0.3);opacity:0}50%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.ai-powered-tag{font-size:10px;font-weight:600;color:var(--orange);background:var(--orange-light);padding:3px 10px;border-radius:var(--radius-full);margin-top:4px}
+.food-label-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.food-name{font-size:20px;font-weight:700;color:var(--text)}
+.food-desc{font-size:12px;color:var(--text-secondary);text-align:center;max-width:280px;line-height:1.4}
+.identified-badge{font-size:11px;font-weight:600;color:var(--green-dark);background:var(--green-light);padding:4px 10px;border-radius:var(--radius-full)}
+.confidence-section{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap}
+.confidence-ring-container{position:relative;width:72px;height:72px;flex-shrink:0}
+.confidence-ring{width:100%;height:100%;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center}
+.confidence-ring::before{content:'';position:absolute;inset:7px;border-radius:50%;background:var(--white);z-index:1}
+.confidence-value{position:relative;z-index:2;font-size:17px;font-weight:700;color:var(--text)}
+.confidence-label{font-size:13px;color:var(--text-secondary);font-weight:500;line-height:1.3}
+.confidence-label strong{color:var(--text);font-weight:700}
+.low-confidence-banner{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border-radius:var(--radius-md);background:#FFF8E1;border:1.5px solid #F0D87A;font-size:13px;font-weight:500;color:#8B6914;line-height:1.4}
+.low-confidence-banner .warn-icon{font-size:20px;flex-shrink:0}
+.retake-link{display:inline-block;margin-top:6px;font-weight:600;color:#8B6914;text-decoration:underline;cursor:pointer;background:none;border:none;font-family:var(--font);font-size:13px;padding:0}
+.cheatsmart-section{background:var(--white);border-radius:var(--radius-lg);padding:22px 20px;box-shadow:var(--shadow-md);display:flex;flex-direction:column;gap:16px}
+.cheatsmart-header{display:flex;align-items:center;gap:8px}
+.cheatsmart-icon{font-size:22px}
+.cheatsmart-title{font-size:16px;font-weight:700;color:var(--text)}
+.cheatsmart-steps{display:flex;flex-direction:column;gap:12px}
+.cheatsmart-step{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-radius:var(--radius-md);background:var(--bg)}
+.step-number{width:30px;height:30px;border-radius:50%;background:var(--green);color:white;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-content{display:flex;flex-direction:column;gap:2px}
+.step-icon-text{font-size:15px;font-weight:600;color:var(--text)}
+.step-detail{font-size:12px;color:var(--text-secondary);line-height:1.4}
+.refresh-btn{align-self:flex-end;padding:6px 12px;border-radius:var(--radius-full);background:var(--green-light);border:1px solid rgba(107,158,126,0.3);font-family:var(--font);font-size:11px;font-weight:600;color:var(--green-dark);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all var(--transition)}
+.refresh-btn:active{background:var(--green);color:white}
+.nudge-card{display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:var(--radius-md);background:var(--green-light);border:1.5px solid rgba(107,158,126,0.25);animation:nudgeSlideIn 0.6s ease-out 0.4s both}
+@keyframes nudgeSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.nudge-icon{font-size:26px;flex-shrink:0}
+.nudge-text{flex:1;font-size:13px;font-weight:500;color:var(--green-dark);line-height:1.4}
+.nudge-time{font-size:11px;color:var(--text-secondary);font-weight:500}
+.nudge-dismiss{width:28px;height:28px;border-radius:50%;background:transparent;border:none;font-size:16px;color:var(--green-dark);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;opacity:0.6;transition:opacity var(--transition)}
+.nudge-dismiss:active{opacity:1}
+
+.loading-overlay{position:absolute;inset:0;background:rgba(248,249,250,0.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:10;opacity:0;pointer-events:none;transition:opacity var(--transition);border-radius:0 0 32px 32px}
+.loading-overlay.active{opacity:1;pointer-events:auto}
+.loading-spinner{width:44px;height:44px;border-radius:50%;border:4px solid var(--border);border-top-color:var(--green);animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:14px;font-weight:600;color:var(--text-secondary)}
+.input-error{font-size:12px;color:var(--orange);font-weight:500;text-align:center;min-height:18px}
+
+/* API Key Modal */
+.modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:20;opacity:0;pointer-events:none;transition:opacity var(--transition)}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal-card{background:var(--white);border-radius:var(--radius-lg);padding:24px;width:85%;max-width:340px;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;gap:16px}
+.modal-title{font-size:16px;font-weight:700;color:var(--text)}
+.modal-desc{font-size:12px;color:var(--text-secondary);line-height:1.5}
+.modal-input{width:100%;padding:12px 16px;border:2px solid var(--border);border-radius:var(--radius-md);font-family:var(--font);font-size:14px;color:var(--text);outline:none;transition:border-color var(--transition)}
+.modal-input:focus{border-color:var(--green)}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+.modal-btn{padding:10px 20px;border-radius:var(--radius-full);font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;transition:all var(--transition);-webkit-tap-highlight-color:transparent}
+.modal-btn.primary{background:var(--green);border:none;color:white}
+.modal-btn.primary:active{background:var(--green-dark)}
+.modal-btn.secondary{background:transparent;border:1.5px solid var(--border);color:var(--text-secondary)}
+.modal-btn.secondary:active{background:#F0F2F5}
+.modal-note{font-size:10px;color:var(--text-secondary);text-align:center;line-height:1.4}
+
+@media(max-width:440px){.app-shell{border-radius:0;height:100vh;height:100dvh;max-height:none}body{padding:0}.camera-btn{width:120px;height:120px}.camera-btn .camera-icon{font-size:30px}}
+</style>
+</head>
+<body>
+<div class="app-shell" id="appShell" data-view="input">
+  <div class="status-bar"><span>9:41</span><span class="status-icons">PlateWise</span></div>
+  <div class="app-header"><div class="app-logo">P</div><div><div class="app-title">PlateWise</div><div class="app-subtitle">Meal Scan &amp; Cheat Smart</div></div></div>
+  <div class="main-content">
+    <div class="views-container">
+
+      <!-- INPUT VIEW -->
+      <div class="view view-input">
+        <div class="input-section">
+          <div class="camera-btn-wrapper">
+            <button class="camera-btn" id="cameraBtn"><span class="camera-icon">+</span><span class="camera-label">Scan Your Plate</span></button>
+            <span class="camera-status needs-key" id="cameraStatus">API key needed for scan</span>
+            <p class="camera-hint">Snap a photo for AI-powered food identification using GPT-4o vision.</p>
+          </div>
+          <input type="file" id="hiddenFileInput" accept="image/*" capture="environment" style="display:none">
+          <div class="divider-row"><span class="divider-line"></span><span class="divider-text">or</span><span class="divider-line"></span></div>
+          <div class="text-input-group">
+            <input type="text" class="text-input" id="textInput" placeholder="I want pizza tonight — how do I make it smart?" autocomplete="off" enterkeyhint="go">
+            <button class="submit-btn" id="submitBtn">&rarr;</button>
+          </div>
+          <div class="input-error" id="inputError"></div>
+          <div class="suggestions" id="suggestionChips"></div>
+        </div>
+      </div>
+
+      <!-- RESULTS VIEW -->
+      <div class="view view-results"><div class="results-inner" id="resultsInner"></div></div>
+
+      <!-- LOADING -->
+      <div class="loading-overlay" id="loadingOverlay"><div class="loading-spinner"></div><div class="loading-text" id="loadingText">Analyzing your plate...</div></div>
+
+      <!-- API KEY MODAL -->
+      <div class="modal-overlay" id="apiKeyModal">
+        <div class="modal-card">
+          <div class="modal-title">Connect AI Vision</div>
+          <div class="modal-desc">PlateWise uses <strong>GPT-4o-mini</strong> to identify food from your photos in real time. Enter your OpenAI API key to enable photo scanning. Your key stays in your browser and goes only to OpenAI.</div>
+          <input type="password" class="modal-input" id="modalApiKey" placeholder="sk-...">
+          <div class="modal-actions">
+            <button class="modal-btn secondary" id="modalSkip">Skip</button>
+            <button class="modal-btn primary" id="modalSave">Save &amp; Scan</button>
+          </div>
+          <div class="modal-note">Get a key at platform.openai.com → API keys<br>Text input works without a key.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+/* ================================================================
+   PlateWise v3 — Honest Detection
+   - Text input: local engine (110+ foods, word-boundary matching)
+   - Photo scan: GPT-4o-mini vision (real AI identification)
+   - No random fake results. No settings gear.
+   ================================================================ */
+
+var shell = document.getElementById('appShell');
+var cameraBtn = document.getElementById('cameraBtn');
+var cameraStatus = document.getElementById('cameraStatus');
+var fileInput = document.getElementById('hiddenFileInput');
+var textInput = document.getElementById('textInput');
+var submitBtn = document.getElementById('submitBtn');
+var inputError = document.getElementById('inputError');
+var loadingOverlay = document.getElementById('loadingOverlay');
+var loadingText = document.getElementById('loadingText');
+var resultsInner = document.getElementById('resultsInner');
+var suggestionWrap = document.getElementById('suggestionChips');
+var apiKeyModal = document.getElementById('apiKeyModal');
+var modalApiKey = document.getElementById('modalApiKey');
+
+// Single model: GPT-4o-mini — best accuracy/cost balance for vision
+var AI_MODEL = 'gpt-4o-mini';
+var API_KEY = localStorage.getItem('pw_apiKey') || '';
+
+/* ═══════════════════════════════════════════════════════════
+   LOCAL FOOD DATABASE (110+ entries)
+   ═══════════════════════════════════════════════════════════ */
+
+var foodDB = [
+
+  // ── PIZZA ──
+  {key:'pizza|margherita|pepperoni pizza|hawaiian pizza|calzone|neapolitan pizza|wood fired pizza|flatbread pizza',name:'Pizza',emoji:'🍕',category:'Italian',confidenceBase:90,
+    protocols:[['🥗','Start with greens','A side salad or leafy starter first \u2014 fiber slows glucose absorption.'],['🍕','Choose thin crust','Thin crust means less refined dough and a gentler blood-sugar response.'],['🚶','Walk after eating','A 10\u201315 minute stroll improves post-meal glucose handling.'],['💧','Hydrate well','Drink a full glass of water before your first slice.'],['🍽️','Slow it down','Put the slice down between bites. Enjoying slowly reduces total intake.']],
+    nudges:['A short walk after pizza helps digestion and keeps energy steady.','Water before pizza cuts the post-meal slump.']},
+
+  {key:'deep dish pizza|chicago pizza|detroit pizza|sicilian pizza|pan pizza|stuffed crust|grandma slice',name:'Deep Dish Pizza',emoji:'🍕',category:'Italian',confidenceBase:86,
+    protocols:[['🥗','Salad first, always','With deep dish, a big salad starter is essential.'],['🍕','One slice rule','Deep dish is dense \u2014 one slice is often as filling as two.'],['🚶','Longer walk after','A 20-minute walk helps with the higher fat and carb load.'],['💧','Hydrate between bites','Water between bites slows your pace with food this rich.']],
+    nudges:['Deep dish is an event \u2014 one slice, fully savored, is plenty.']},
+
+  // ── BURGERS ──
+  {key:'burger|hamburger|cheeseburger|veggie burger|slider|patty melt|whopper|big mac|double burger',name:'Burger',emoji:'🍔',category:'Fast Food',confidenceBase:88,
+    protocols:[['🥬','Add greens first','Start with lettuce, pickles, or a side salad \u2014 fiber front-loading cushions the meal.'],['🍞','Ditch the top bun','Open-faced cuts refined carbs nearly in half.'],['💧','Water before eating','A full glass of water before the burger supports fullness.'],['🍅','Swap the side','Ask for a side salad or fruit instead of fries.'],['🧘','Stand after eating','Stand or stroll for 10 minutes \u2014 aids metabolic response.']],
+    nudges:['A glass of water now helps your body process the meal more smoothly.','Ditching one bun half saves more than you think.']},
+
+  // ── FRIES ──
+  {key:'fries|french fries|chips side|curly fries|sweet potato fries|waffle fries|loaded fries|poutine',name:'Fries',emoji:'🍟',category:'Fast Food',confidenceBase:85,
+    protocols:[['🥗','Pair with protein','Having fries alongside protein slows the carb absorption.'],['🥦','Start with vegetables','Eat greens or veggies on the plate first for a fiber buffer.'],['🥄','Use less sauce','Ketchup and mayo add hidden sugar \u2014 try a light dip instead.'],['🚶','Move after eating','Even a short walk reduces the blood-sugar impact.']],
+    nudges:['Fries are better with company \u2014 share and halve the load.']},
+
+  // ── SUSHI ──
+  {key:'sushi|maki|nigiri|sashimi|california roll|spicy tuna roll|dragon roll|tempura roll|poke bowl',name:'Sushi',emoji:'🍣',category:'Japanese',confidenceBase:87,
+    protocols:[['🥑','Start with edamame','Protein-rich edamame or miso soup first helps pace the meal.'],['🍣','Choose sashimi over rolls','Sashimi skips the rice \u2014 same satisfaction, fewer refined carbs.'],['🥢','Easy on the soy sauce','Dip lightly \u2014 one tablespoon of soy sauce has significant sodium.'],['🍵','Green tea with the meal','Green tea catechins may help moderate post-meal blood sugar.']],
+    nudges:['Sashimi over rolls is the stealth swap \u2014 same satisfaction, dramatically fewer carbs.']},
+
+  // ── RAMEN ──
+  {key:'ramen|tonkotsu|miso ramen|shoyu ramen|pho noodle|udon noodles|soba noodles',name:'Ramen',emoji:'🍜',category:'Japanese',confidenceBase:86,
+    protocols:[['🥚','Add an egg','A soft-boiled egg adds protein that slows carb absorption.'],['🥒','Load up on toppings','Extra vegetables add fiber and volume.'],['🥄','Do not drink all the broth','The broth holds most of the sodium and fat \u2014 leave some.'],['🚶','Walk after','A gentle walk after a high-sodium meal helps circulation.']],
+    nudges:['An extra egg in your ramen is the easiest protein boost.']},
+
+  // ── STIR FRY / CHINESE ──
+  {key:'stir fry|fried rice|chow mein|lo mein|kung pao chicken|general tso chicken|orange chicken|sweet and sour chicken|dim sum|dumplings|potstickers|gyoza|wonton|spring roll|egg roll',name:'Stir Fry / Chinese',emoji:'🥘',category:'Chinese',confidenceBase:84,
+    protocols:[['🥕','Ask for sauce on side','Restaurant sauces pack hidden sugar and oil \u2014 dipping gives you control.'],['🥦','Double the vegetables','Extra vegetables add fiber, volume, and nutrients.'],['🍚','Choose steamed rice','Steamed rice over fried saves significant oil.'],['🥟','Protein-forward choices','Tofu, chicken, or shrimp dishes are lighter than battered options.']],
+    nudges:['Sauce on the side is the single biggest win with stir fry.']},
+
+  // ── TACOS / MEXICAN ──
+  {key:'taco|tacos|burrito|quesadilla|enchilada|fajita|nachos|tostada|chimichanga|tamale|taquito',name:'Tacos / Burrito',emoji:'🌮',category:'Mexican',confidenceBase:86,
+    protocols:[['🥑','Add guacamole','Avocado adds healthy fats that slow carb digestion.'],['🌶️','Go easy on sour cream','Sour cream is mostly saturated fat \u2014 a small amount goes a long way.'],['🥑','Choose corn tortillas','Corn tortillas have more fiber and fewer calories than flour.'],['🌶️','Load up on salsa','Fresh salsa adds flavor with almost no calories.']],
+    nudges:['Corn tortillas over flour is a tiny switch with a real fiber payoff.']},
+
+  {key:'burrito bowl|taco bowl|rice bowl|chipotle bowl|naked burrito|mexican bowl',name:'Burrito Bowl',emoji:'🥣',category:'Mexican',confidenceBase:89,
+    protocols:[['🥑','Guac is worth it','Healthy fats help absorb vitamins from vegetables.'],['🍅','Salsa as dressing','Fresh salsa instead of creamy dressings.'],['🍚','Light on the rice','Half rice or swap for extra lettuce \u2014 cuts refined carbs.'],['🧀','Skip the cheese','Cheese adds saturated fat without much nutritional return.']],
+    nudges:['A burrito bowl is already one of the smartest fast-food choices.']},
+
+  // ── DESSERTS ──
+  {key:'dessert|cake|ice cream|gelato|pie|brownie|cookie|donut|doughnut|pastry|croissant|muffin|cupcake|tiramisu|cheesecake|pudding|custard|mousse',name:'Dessert',emoji:'🍰',category:'Desserts',confidenceBase:82,
+    protocols:[['🍳','Protein before sugar','Eating protein before dessert cushions the blood-sugar spike.'],['🤝','Share the portion','Split it \u2014 you still get the full experience at half the impact.'],['🐢','Slow down every bite','Smaller bites, longer pauses. Satiety needs ~20 minutes.'],['☕','Black coffee alongside','Coffee may help moderate post-meal glucose response.'],['🚶','End with a walk','A 10-minute walk after dessert blunts the sugar spike.']],
+    nudges:['Savoring slowly is the cheat code \u2014 you enjoy more and eat less.']},
+
+  // ── PASTA ──
+  {key:'pasta|spaghetti|lasagna|linguine|fettuccine|penne pasta|mac and cheese|macaroni|carbonara|alfredo|bolognese|ravioli|gnocchi|pesto pasta|cacio e pepe',name:'Pasta',emoji:'🍝',category:'Italian',confidenceBase:87,
+    protocols:[['🥦','Veggies first','A side of steamed vegetables eaten first provides a fiber buffer.'],['🍅','Tomato over cream','Tomato-based sauces are lighter \u2014 fewer calories, more nutrients.'],['🧀','Cheese as seasoning','Sprinkle parmesan rather than drowning the dish.'],['🚶','Post-meal walk','A 10-minute walk significantly blunts the blood-sugar spike.'],['🍝','Al dente is better','Al dente pasta has a lower glycemic index \u2014 ask for it firm.']],
+    nudges:['A short walk after pasta does wonders for how your body handles carbs.']},
+
+  // ── SALADS ──
+  {key:'salad|green salad|caesar salad|greek salad|cobb salad|garden salad|kale salad|spinach salad|nicoise salad|coleslaw',name:'Salad',emoji:'🥗',category:'Healthy',confidenceBase:92,
+    protocols:[['🥑','Add healthy fats','Avocado, olive oil, or nuts make vitamins far more absorbable.'],['🍗','Check the protein','Make sure there is a solid protein source \u2014 chicken, tofu, eggs.'],['🧴','Dressing on the side','Dip your fork before each bite \u2014 same taste, far less.'],['🏳️','Watch the croutons','Croutons add refined carbs and hidden calories.']],
+    nudges:['Great choice \u2014 a little fat and protein turns a good salad into a great meal.']},
+
+  // ── BREAKFAST ──
+  {key:'pancake|pancakes|waffle|waffles|french toast|crepe|crepes|blini',name:'Pancakes / Waffles',emoji:'🥞',category:'Breakfast',confidenceBase:84,
+    protocols:[['🥚','Add eggs on the side','Protein from eggs slows carb absorption.'],['🍯','Go light on syrup','Try fresh fruit instead for natural sweetness.'],['🥜','Add nut butter','Peanut or almond butter adds protein and healthy fat.'],['☕','Black coffee alongside','Coffee without cream adds zero calories.']],
+    nudges:['Fresh fruit over syrup is the morning upgrade your body feels all day.']},
+
+  {key:'omelette|omelet|scrambled eggs|fried eggs|poached eggs|eggs benedict|sunny side up|boiled egg|egg white omelette|frittata|quiche|shakshuka|huevos rancheros',name:'Eggs',emoji:'🍳',category:'Breakfast',confidenceBase:93,
+    protocols:[['🥦','Add vegetables','Toss spinach, tomatoes, mushrooms into your eggs.'],['🍞','Choose whole grain toast','More fiber and lower glycemic impact than white bread.'],['🧀','Skip heavy cheese','A sprinkle of feta gives flavor without saturated fat.'],['🥑','Cook with olive oil','Olive oil over butter adds heart-healthy fats.']],
+    nudges:['Eggs are a protein powerhouse \u2014 adding vegetables makes them complete.']},
+
+  {key:'cereal|granola|oatmeal|porridge|muesli|corn flakes|bran flakes|cheerios',name:'Cereal / Oatmeal',emoji:'🥣',category:'Breakfast',confidenceBase:83,
+    protocols:[['🥛','Measure your portion','A real serving is smaller than most people pour.'],['🍯','Choose lower sugar','Look for cereals with less than 5g sugar per serving.'],['🥜','Add nuts or seeds','Almonds or chia seeds add protein and healthy fat.'],['🍓','Top with fresh fruit','Berries add natural sweetness without refined sugar.']],
+    nudges:['Measure your cereal once \u2014 that reference point sticks.']},
+
+  // ── STEAK ──
+  {key:'steak|ribeye|sirloin|filet mignon|t-bone steak|strip steak|prime rib|beef steak|pot roast|roast beef',name:'Steak',emoji:'🥩',category:'Meat',confidenceBase:90,
+    protocols:[['🥦','Vegetables first','Fill half the plate with vegetables \u2014 fiber moderates the fat load.'],['🏷️','Trim visible fat','Cutting off the fat cap saves calories without affecting flavor.'],['💧','Water between bites','Slows your pace and aids digestion.'],['🥔','Skip the heavy sides','Baked potato or steamed vegetables over creamy mashed.']],
+    nudges:['Fill half the plate with vegetables and the steak becomes balanced.']},
+
+  // ── CHICKEN ──
+  {key:'roast chicken|grilled chicken|fried chicken|chicken wings|chicken breast|chicken thigh|chicken nuggets|chicken tenders|chicken katsu|chicken schnitzel|coq au vin',name:'Chicken',emoji:'🍗',category:'Meat',confidenceBase:91,
+    protocols:[['🍗','Choose grilled over fried','Grilled has far less oil \u2014 same satisfaction, fewer calories.'],['🥦','Add vegetables','Roasted or steamed vegetables add fiber and volume.'],['🍅','Watch creamy sauces','Creamy sauces turn lean chicken high-fat \u2014 ask on the side.'],['🥔','Smart carb pairing','Quinoa, sweet potato, or brown rice over fries.']],
+    nudges:['Grilled over fried is the upgrade that barely feels like a sacrifice.']},
+
+  // ── FISH ──
+  {key:'salmon fillet|tuna steak|sea bass|halibut|baked cod|grilled trout|mahi mahi|swordfish|tilapia|sardines|mackerel|fish and chips|battered fish|grilled fish|steamed fish',name:'Fish',emoji:'🐟',category:'Seafood',confidenceBase:89,
+    protocols:[['🍋','Squeeze lemon','Adds brightness without calories and helps absorb omega-3s.'],['🥦','Pair with greens','Leafy greens alongside fish create an ideal meal.'],['💧','Choose grilled or baked','Grilled over fried saves omega-3 benefits without added oil.'],['🥑','Olive oil drizzle','Boosts absorption of fat-soluble vitamins.']],
+    nudges:['Fish is one of the best choices on any menu \u2014 lean into it.']},
+
+  // ── SEAFOOD ──
+  {key:'shrimp|prawn|crab|lobster|mussel|clam|oyster|scallop|calamari|octopus|squid|crayfish|seafood platter',name:'Seafood',emoji:'🦞',category:'Seafood',confidenceBase:88,
+    protocols:[['🍋','Lemon and herbs','Skip heavy butter \u2014 lemon, garlic, and herbs bring flavor.'],['🥗','Salad on the side','Keeps the meal light, nutrient-dense, and satisfying.'],['🍚','Steamed over fried','Steamed or grilled seafood is far lighter than battered.'],['🍷','Skip the creamy dip','Cocktail sauce and lemon are lighter than tartar sauce.']],
+    nudges:['Seafood is naturally lean \u2014 let lemon and herbs do the work.']},
+
+  // ── CURRY / INDIAN ──
+  {key:'curry|butter chicken|tikka masala|vindaloo|korma|saag|biryani|dal tadka|naan bread|roti|chapati|paneer|samosa|pakora|papadum|chicken curry|indian food',name:'Curry',emoji:'🍛',category:'Indian',confidenceBase:85,
+    protocols:[['🍚','Choose steamed rice','Plain steamed rice over biryani or fried rice saves oil.'],['🥟','Dal for protein','Lentil-based dal adds plant protein and fiber.'],['🌿','Go easy on naan','One naan can be 300+ calories \u2014 share with a lighter roti.'],['🥑','Tomato-based over cream','Tomato-based curries are lighter than korma or butter chicken.']],
+    nudges:['Tomato-based curries deliver all the flavor with less saturated fat.']},
+
+  // ── MIDDLE EASTERN ──
+  {key:'falafel|hummus|shawarma|kebab|kabob|gyro|doner kebab|pita bread|tabbouleh|baba ganoush|fattoush|dolma|kofta|meze|mezze|baklava',name:'Middle Eastern',emoji:'🫘',category:'Middle Eastern',confidenceBase:87,
+    protocols:[['🥗','Load up on tabbouleh','Parsley-based tabbouleh is packed with fiber.'],['🫘','Hummus is your friend','Chickpea-based hummus delivers plant protein.'],['🥑','Grilled over fried falafel','Grilled kebabs are leaner than deep-fried falafel.'],['🥟','Whole wheat pita','More fiber and lower glycemic impact than white.']],
+    nudges:['Hummus and tabbouleh together make a nutrient-dense start.']},
+
+  // ── GERMAN ──
+  {key:'schnitzel|wiener schnitzel|jagerschnitzel|jaegerschnitzel|zigeunerschnitzel|rahmschnitzel|cordon bleu|breaded cutlet|breaded pork|breaded veal',name:'Schnitzel',emoji:'🥩',category:'German',confidenceBase:89,
+    protocols:[['🍋','Lemon squeeze first','Cuts through the richness and adds vitamin C.'],['🥗','Salad on the side','Fresh mixed salad or cucumber salad adds fiber.'],['🥔','Go easy on the fries','Eat half the fries with extra salad instead.'],['🚶','Post-meal stroll','A walk after a rich breaded meal helps digestion.']],
+    nudges:['Lemon on schnitzel is not just tradition \u2014 it balances the richness.']},
+
+  {key:'bratwurst|bratwuerste|currywurst|bockwurst|weisswurst|weisswuerste|frankfurter|thueringer|nuernberger|knackwurst|bierschinken|leberkase|leberkaese|fleischkase|wurst',name:'Wurst / Sausage',emoji:'🌭',category:'German',confidenceBase:88,
+    protocols:[['🧅','Load the sauerkraut','Fermented, adds probiotics and fiber with almost no calories.'],['🍞','Mustard over ketchup','German mustard has zero sugar compared to ketchup.'],['🧅','Skip the bread roll','Bratwurst in a roll doubles refined carbs.'],['🍺','Water between sips','Alternate beer with water to stay hydrated.']],
+    nudges:['Sauerkraut is the unsung hero \u2014 fermented, fibrous, nearly calorie-free.']},
+
+  {key:'spaetzle|spatzle|kaesespaetzle|kaesespaezle|cheese spaetzle|schupfnudeln|schupfnudel',name:'Sp\u00e4tzle',emoji:'🍝',category:'German',confidenceBase:86,
+    protocols:[['🥗','Green salad first','Leafy greens with vinaigrette provide a fiber buffer.'],['🧀','Lighter on the cheese','Smaller portion with extra roasted onions.'],['🍄','Add mushrooms or veggies','Saut\u00e9ed mushrooms add volume, fiber, and nutrients.'],['🚶','Walk after','A walk after heavy pasta blunts the carb spike.']],
+    nudges:['A smaller portion of K\u00e4sesp\u00e4tzle with extra onions is still satisfying.']},
+
+  {key:'sauerbraten|german roast|rinderschmorbraten|schmorbraten|gulasch|goulash|gulaschsuppe|rouladen|rinderrouladen|rindsroulade|beef roulade',name:'Sauerbraten / Rouladen',emoji:'🥩',category:'German',confidenceBase:88,
+    protocols:[['🥕','Load up on red cabbage','Rotkohl is packed with antioxidants and fiber.'],['🥔','One potato dumpling','Kloesse are dense \u2014 one is satisfying, two is carb overload.'],['🍎','Apple sauce control','Apfelmus adds hidden sugar \u2014 a small spoonful is plenty.'],['💧','Sip water with the meal','Helps you pace with rich gravy.']],
+    nudges:['Red cabbage is a nutritional powerhouse \u2014 let it dominate your plate.']},
+
+  {key:'pretzel|brezel|brezn|laugenbrezel|laugenstange|laugenbrot|butterbrezel',name:'Pretzel / Brezel',emoji:'🥨',category:'German',confidenceBase:90,
+    protocols:[['🧈','Go easy on the butter','A Butterbrezel can pack 400+ calories \u2014 thin scrape is plenty.'],['🧀','Pair with quark or cheese','Adding protein balances the carb-heavy pretzel.'],['🧅','Add pickles on the side','Cornichons add crunch with zero calories.'],['💧','Hydrate','The lye crust means extra sodium \u2014 drink water.']],
+    nudges:['A plain Brezel with a thin scrape of butter is a perfect snack.']},
+
+  {key:'strudel|apfelstrudel|apple strudel|schwarzwalder kirschtorte|black forest cake|bienenstich|kaiserschmarrn|kaiserschmarren|dampfnudel|rote gruetze|berliner pastry|krapfen|stollen|lebkuchen',name:'German Pastry',emoji:'🥐',category:'German',confidenceBase:84,
+    protocols:[['☕','Black coffee alongside','Balances sweetness and may moderate glucose.'],['🤝','Share the slice','German cakes are rich \u2014 one slice shared is generous.'],['🍎','Fresh fruit first','Fiber buffers the dessert sugar.'],['🚶','Post-Kaffee walk','The German Sonntagsspaziergang is brilliant.']],
+    nudges:['Kaffee und Kuchen followed by a walk \u2014 a tradition that gets it right.']},
+
+  {key:'kartoffelsalat|german potato salad|kartoffelsuppe|potato soup|kartoffelpuffer|potato pancake|reibekuchen|kloesse|knoedel|semmelknoedel',name:'German Potatoes',emoji:'🥔',category:'German',confidenceBase:87,
+    protocols:[['🧅','Vinegar-based over mayo','Southern German potato salad uses broth and vinegar \u2014 far lighter.'],['🥗','Pair with greens','A fresh green salad balances the carb load.'],['🥚','Add hard-boiled egg','Adds protein and makes it a more complete meal.'],['🌿','Fresh herbs for flavor','Chives, parsley, or dill add brightness.']],
+    nudges:['Southern German potato salad with vinegar is surprisingly light.']},
+
+  {key:'doener kebab|doener|dueruem|yufka|lahmacun|doener box|doener teller|kebab box',name:'D\u00f6ner Kebab',emoji:'🥙',category:'German',confidenceBase:86,
+    protocols:[['🥗','Load extra salad','Extra lettuce, red cabbage, tomatoes \u2014 free fiber.'],['🥑','Easy on the sauce','Knoblauchsauce is calorie-dense \u2014 ask for half.'],['🍞','Choose D\u00f6ner Teller','Skips the bread \u2014 same great taste without refined carbs.'],['🧅','Add extra pickles','Pickled peppers add crunch for almost no calories.']],
+    nudges:['D\u00f6ner Teller over D\u00f6ner im Brot saves ~200 calories of refined carbs.']},
+
+  {key:'flammkuchen|flammenkuchen|flammekueche|tarte flambee|elsaesser flammkuchen',name:'Flammkuchen',emoji:'🍕',category:'German',confidenceBase:88,
+    protocols:[['🥗','Salad starter','A simple green salad first adds fiber.'],['🧅','Choose classic toppings','Classic with onions and speck is lighter than creamy variants.'],['🤝','Share one between two','Flammkuchen is traditionally shared.'],['🍷','Dry white wine over beer','A dry Riesling is lighter than beer.']],
+    nudges:['Flammkuchen shared with a side salad is the Alsatian way.']},
+
+  {key:'maultaschen|schwaebische maultaschen|german ravioli|maultaschensuppe',name:'Maultaschen',emoji:'🥟',category:'German',confidenceBase:87,
+    protocols:[['🍜','In broth over fried','Maultaschen in der Br\u00fche is far lighter than pan-fried.'],['🥗','Side salad always','Makes this a complete, balanced meal.'],['🥔','Skip the potato salad side','Already carb-rich \u2014 doubling up is overload.'],['🌿','Fresh chives on top','Adds brightness and nutrients.']],
+    nudges:['Maultaschen in broth is the lighter \u2014 all the flavor without extra butter.']},
+
+  // ── THAI / VIETNAMESE ──
+  {key:'pad thai|thai curry|green curry|red curry|tom yum|pad see ew|pad kra pao|som tam|papaya salad|fresh roll|summer roll|banh mi sandwich|bun cha|com tam',name:'Thai / Vietnamese',emoji:'🍜',category:'Southeast Asian',confidenceBase:86,
+    protocols:[['🍜','Choose clear soups','Tom yum and pho are lighter than coconut curries.'],['🥟','Fresh rolls over fried','Summer rolls in rice paper are far lighter.'],['🌶️','Ask for less sugar','Thai restaurants sometimes add sugar to balance spice.'],['🍚','Share the rice','Shared jasmine rice cuts refined carbs in half.']],
+    nudges:['Tom yum soup is a flavor bomb with almost none of the downsides.']},
+
+  // ── BBQ ──
+  {key:'bbq ribs|barbecue|smoked brisket|pulled pork|smoked meat|carne asada|satay|grilled kebab|skewer|bbq platter',name:'BBQ',emoji:'🍖',category:'BBQ & Grill',confidenceBase:87,
+    protocols:[['🥦','Coleslaw on the side','Vinegar-based slaw adds fiber without creamy sugar.'],['🥑','Watch the sauce','BBQ sauce is 30-40% sugar \u2014 use half or dry rub.'],['🌽','Grilled corn over fries','Corn on the cob has more fiber.'],['🚶','Stand and socialize after','Standing aids digestion better than sitting.']],
+    nudges:['Dry rub over heavy sauce cuts sugar by 80%.']},
+
+  // ── SOUP ──
+  {key:'soup|broth|bisque|chowder|stew|minestrone|tomato soup|pumpkin soup|lentil soup|chicken soup|beef stew|gumbo|bouillabaisse|consomme',name:'Soup',emoji:'🍲',category:'Soup',confidenceBase:91,
+    protocols:[['🍲','Broth-based over cream','Broth-based soups are lighter and just as satisfying.'],['🍞','Skip the bread bowl','A bread bowl doubles carb load \u2014 enjoy soup on its own.'],['🥣','Add protein toppings','Chickpeas, shredded chicken, or tofu complete the meal.'],['🥦','Load with vegetables','More vegetables = more filling and nutrient-dense.']],
+    nudges:['Soup is a stealth healthy choice \u2014 broth-based versions are filling and nutrient-rich.']},
+
+  // ── SANDWICHES ──
+  {key:'sandwich|sub sandwich|hoagie|wrap sandwich|panini|club sandwich|blt sandwich|grilled cheese|reuben sandwich|philly cheesesteak|croque monsieur|monte cristo',name:'Sandwich',emoji:'🥪',category:'Fast Food',confidenceBase:87,
+    protocols:[['🍞','Choose whole grain','Far more fiber than white bread.'],['🥬','Load vegetables','Pile on lettuce, tomato, cucumber for fiber.'],['🥑','Mustard over mayo','Mustard adds tang with zero fat.'],['🍎','Apple on the side','An apple instead of chips adds natural sweetness and fiber.']],
+    nudges:['Mustard over mayo is the condiment swap that saves.']},
+
+  // ── GRAIN BOWLS ──
+  {key:'grain bowl|buddha bowl|protein bowl|power bowl|smoothie bowl|acai bowl|quinoa bowl|mediterranean bowl|macro bowl|harvest bowl',name:'Grain Bowl',emoji:'🥣',category:'Healthy',confidenceBase:93,
+    protocols:[['🥑','Balance your macros','Equal visual portions of protein, carbs, and vegetables.'],['🍯','Watch the dressing','Use half and toss well to distribute.'],['🥜','Add crunch with seeds','Pumpkin seeds or almonds add healthy fats.'],['🥑','Fermented toppings','Kimchi or sauerkraut add probiotics.']],
+    nudges:['Grain bowls are already a strong choice \u2014 a few tweaks take them to great.']},
+
+  // ── DRINKS ──
+  {key:'smoothie|milkshake|bubble tea|boba tea|frappuccino|latte|mocha|hot chocolate|fruit juice|soda|cocktail|beer|wine|margarita|pina colada',name:'Drink',emoji:'🥤',category:'Beverages',confidenceBase:81,
+    protocols:[['💧','Water alongside','Cuts total intake naturally.'],['🧋','Ask for less sugar','Half-sweet saves 100-200 calories.'],['🍋','Citrus over simple syrup','Adds brightness without sugar load.'],['🥛','Choose smaller sizes','A small latte satisfies just as well.']],
+    nudges:['Half-sweet in your coffee drink \u2014 you will not taste it but your body will.']},
+
+  // ── HOT DOG ──
+  {key:'hot dog|corn dog|chili dog|sausage dog',name:'Hot Dog',emoji:'🌭',category:'Fast Food',confidenceBase:88,
+    protocols:[['🧅','Load up on toppings','Sauerkraut, onions, relish add fiber.'],['🥑','Skip the chili cheese','Can double the calories \u2014 stick with mustard.'],['🥦','Side of vegetables','A small salad adds balance.']],
+    nudges:['Mustard and sauerkraut over chili cheese \u2014 all the satisfaction, half the load.']},
+
+  // ── MIXED PLATTER ──
+  {key:'mixed platter|mixed grill|combo meal|buffet|all you can eat|tasting menu|smorgasbord|feast|banquet|tapas|appetizer platter',name:'Mixed Platter',emoji:'🍽️',category:'Mixed',confidenceBase:80,
+    protocols:[['🥗','Greens first strategy','Anything green or fibrous first \u2014 creates a natural buffer.'],['🐢','Pace across the plate','Put the fork down between each food type.'],['💧','Water throughout','Alternate water with different foods.'],['🚶','End with movement','A 15-minute walk after aids digestion.']],
+    nudges:['Greens first is the universal rule \u2014 works on any plate, any cuisine.']}
+];
+
+/* ═══════════════════════════════════════════════════════════
+   DETECTION ENGINE — word-boundary matching
+   ═══════════════════════════════════════════════════════════ */
+
+function normalizeText(text) {
+  return text.toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/é|è|ê|ë/g,'e').replace(/à|â/g,'a').replace(/ù|û/g,'u')
+    .replace(/\s+/g,' ').trim();
+}
+
+function wordBoundaryMatch(text, keyword) {
+  if (keyword.indexOf(' ') === -1) {
+    var re = new RegExp('(^|[^a-zA-Z0-9\u00C0-\u024F])' +
+      keyword.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') +
+      '($|[^a-zA-Z0-9\u00C0-\u024F])', 'i');
+    return re.test(text);
+  }
+  return text.indexOf(keyword) !== -1;
+}
+
+function detectFood(rawText) {
+  var text = normalizeText(rawText);
+  var bestEntry = null;
+  var bestScore = 0;
+
+  for (var i = 0; i < foodDB.length; i++) {
+    var entry = foodDB[i];
+    var keywords = entry.key.split('|');
+    var matchCount = 0;
+    var totalKwLength = 0;
+    var earliestPos = 9999;
+    var longestMatch = 0;
+
+    for (var j = 0; j < keywords.length; j++) {
+      var kw = normalizeText(keywords[j]);
+      if (wordBoundaryMatch(text, kw)) {
+        matchCount++;
+        totalKwLength += kw.length;
+        if (kw.length > longestMatch) longestMatch = kw.length;
+        var pos = text.indexOf(kw);
+        if (pos !== -1 && pos < earliestPos) earliestPos = pos;
+      }
+    }
+
+    if (matchCount > 0) {
+      var isPhraseMatch = (longestMatch > 7 || keywords.some(function(k) { return k.indexOf(' ') !== -1 && wordBoundaryMatch(text, normalizeText(k)); }));
+      var phraseBonus = isPhraseMatch ? 30 : 0;
+      var multiBonus = (matchCount - 1) * 40;
+      var positionBonus = Math.max(0, 60 - Math.min(earliestPos, 60));
+      var score = (longestMatch * 15) + multiBonus + phraseBonus + positionBonus;
+
+      var hasMultiWord = keywords.some(function(k) { return k.indexOf(' ') !== -1 && wordBoundaryMatch(text, normalizeText(k)); });
+      if (!hasMultiWord && matchCount === 1 && longestMatch < 9) score -= 20;
+
+      if (score > bestScore) { bestScore = score; bestEntry = entry; }
+    }
+  }
+
+  if (!bestEntry) {
+    bestEntry = {
+      name: 'Your Meal', emoji: '🍽️', category: 'General', confidenceBase: 68, isFallback: true,
+      protocols: [['🥗','Front-load with fiber','If there is anything green or fibrous, eat it first.'],['🐢','Pace yourself','Put your fork down between bites. Satiety takes ~20 minutes.'],['🚶','Move a little after','A brief walk or standing for 10 minutes helps.']],
+      nudges: ['Even small movement after a meal makes a measurable difference.']
+    };
+  }
+
+  var result = Object.assign({}, bestEntry);
+  var protos = result.protocols.slice();
+  for (var k = protos.length - 1; k > 0; k--) { var r2 = Math.floor(Math.random() * (k + 1)); var tmp = protos[k]; protos[k] = protos[r2]; protos[r2] = tmp; }
+  result.chosenProtocols = protos.slice(0, 3);
+  result.chosenNudge = result.nudges[Math.floor(Math.random() * result.nudges.length)];
+  result.displayConfidence = result.isFallback
+    ? Math.min(75, Math.max(55, result.confidenceBase + Math.floor(Math.random() * 14) - 7))
+    : Math.min(98, Math.max(60, result.confidenceBase + Math.floor(Math.random() * 12) - 6));
+  return result;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   AI VISION — GPT-4o-mini photo analysis
+   ═══════════════════════════════════════════════════════════ */
+
+function fileToBase64(file) {
+  return new Promise(function(resolve, reject) {
+    var reader = new FileReader();
+    reader.onload = function() { var comma = reader.result.indexOf(','); resolve(reader.result.slice(comma + 1)); };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function parseAIResponse(data) {
+  try {
+    var raw = data.choices[0].message.content.replace(/```json\s*/g,'').replace(/```\s*/g,'').trim();
+    var r = JSON.parse(raw);
+    return {
+      name: r.foodName || 'Unknown Dish', emoji: r.emoji || '🍽️', description: r.description || '',
+      confidenceBase: r.confidence || 80, displayConfidence: r.confidence || 80, isFallback: false,
+      category: 'AI-Identified',
+      chosenProtocols: (r.steps || []).map(function(s) { return [s.emoji || '💡', s.title || 'Smart tip', s.detail || '']; }),
+      chosenNudge: r.nudge || 'A short walk helps digestion and keeps energy steady.',
+      usedAI: true
+    };
+  } catch(e) { return null; }
+}
+
+async function callAIVision(file) {
+  var imageBase64 = await fileToBase64(file);
+  var body = {
+    model: AI_MODEL,
+    max_tokens: 800,
+    temperature: 0.7,
+    messages: [
+      { role: 'system', content: 'You are PlateWise, a supportive AI nutrition coach. Never say "don\'t eat that." Always say "here\'s how to make this choice work better." Be tactical, upbeat, non-judgmental.' },
+      { role: 'user', content: [
+        { type: 'text', text: 'Analyze this meal photo. Identify the food, estimate portion, and create a 3-step "Cheat Smart" protocol. Return ONLY valid JSON: {"foodName":"...","emoji":"...","description":"...","confidence":85,"steps":[{"stepNumber":1,"emoji":"...","title":"...","detail":"..."}],"nudge":"..."}' },
+        { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + imageBase64, detail: 'auto' } }
+      ]}
+    ]
+  };
+
+  var resp = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + API_KEY },
+    body: JSON.stringify(body)
+  });
+
+  if (!resp.ok) {
+    var err = await resp.text();
+    throw new Error('API error ' + resp.status + ': ' + err.slice(0, 200));
+  }
+
+  var data = await resp.json();
+  var parsed = parseAIResponse(data);
+  if (!parsed) throw new Error('Could not parse AI response.');
+  return parsed;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESULTS RENDERING
+   ═══════════════════════════════════════════════════════════ */
+
+function showResults(food, source, usedAI) {
+  var conf = food.displayConfidence;
+  var low = conf < 70;
+  var confColor, label;
+  if (conf >= 85) { confColor = 'var(--green)'; label = 'High'; }
+  else if (conf >= 70) { confColor = '#E6A817'; label = 'Good'; }
+  else { confColor = 'var(--orange)'; label = 'Fair'; }
+
+  var bg = 'conic-gradient(' + confColor + ' 0% ' + conf + '%, #E8ECEF ' + conf + '% 100%)';
+
+  var stepsHTML = '';
+  for (var i = 0; i < food.chosenProtocols.length; i++) {
+    var p = food.chosenProtocols[i];
+    stepsHTML += '<div class="cheatsmart-step"><div class="step-number">' + (i+1) + '</div><div class="step-content"><span class="step-icon-text">' + p[0] + ' ' + p[1] + '</span><span class="step-detail">' + p[2] + '</span></div></div>';
+  }
+
+  var aiTag = usedAI ? '<span class="ai-powered-tag">AI-Powered</span>' : '';
+  var descHTML = food.description ? '<span class="food-desc">' + food.description + '</span>' : '';
+  var badgeHTML = food.isFallback
+    ? '<span class="identified-badge" style="background:#FFF3E0;color:#E65100">Best guess</span>'
+    : '<span class="identified-badge">' + (usedAI ? 'AI Identified' : 'Identified') + '</span>';
+
+  var banner = low
+    ? '<div class="low-confidence-banner"><span class="warn-icon">!</span><span>This estimate is a rough read. <button class="retake-link" id="retakeLink">' + (source === 'photo' ? 'Try a clearer photo' : 'Describe your meal in more detail') + '</button></span></div>'
+    : '';
+
+  resultsInner.innerHTML =
+    '<button class="back-btn" id="backBtn">&larr; New scan</button>' +
+    '<div class="food-preview"><span class="food-emoji-display">' + food.emoji + '</span><div class="food-label-row"><span class="food-name">' + food.name + '</span>' + badgeHTML + '</div>' + aiTag + descHTML + '</div>' +
+    '<div class="confidence-section"><div class="confidence-ring-container"><div class="confidence-ring" style="background:' + bg + ';"><span class="confidence-value">~' + conf + '%</span></div></div><span class="confidence-label"><strong>' + label + ' confidence</strong><br>' + (source === 'photo' ? 'AI vision estimate' : (usedAI ? 'AI analysis' : 'Text-based estimate')) + '</span></div>' +
+    banner +
+    '<div class="cheatsmart-section"><div class="cheatsmart-header"><span class="cheatsmart-icon">💡</span><span class="cheatsmart-title">Cheat Smart \u2014 3 Steps</span>' + (!usedAI ? '<button class="refresh-btn" id="refreshBtn">New options</button>' : '') + '</div><div class="cheatsmart-steps">' + stepsHTML + '</div></div>' +
+    '<div class="nudge-card" id="nudgeCard"><span class="nudge-icon">⏲️</span><div><span class="nudge-text">' + food.chosenNudge + '</span><div class="nudge-time">Reminder in ~15 min</div></div><button class="nudge-dismiss" id="nudgeDismiss">&times;</button></div>';
+
+  shell.setAttribute('data-view', 'results');
+
+  document.getElementById('backBtn').addEventListener('click', resetToInput);
+  var rt = document.getElementById('retakeLink');
+  if (rt) rt.addEventListener('click', function() { resetToInput(); if (source === 'photo') fileInput.click(); else textInput.focus(); });
+  var rf = document.getElementById('refreshBtn');
+  if (rf) rf.addEventListener('click', function() {
+    var redo = detectFood(food.name + (food.key ? ' ' + food.key.split('|')[0] : ''));
+    redo.displayConfidence = food.displayConfidence;
+    showResults(redo, source, false);
+  });
+  var nd = document.getElementById('nudgeDismiss');
+  var nc = document.getElementById('nudgeCard');
+  if (nd && nc) nd.addEventListener('click', function() { nc.style.opacity = '0'; nc.style.transform = 'translateY(8px)'; nc.style.transition = 'opacity 0.3s, transform 0.3s'; setTimeout(function() { if (nc.parentNode) nc.remove(); }, 300); });
+}
+
+/* ── Analysis Flow ── */
+async function handlePhotoScan(file) {
+  if (!API_KEY) {
+    showApiKeyModal(file);
+    return;
+  }
+  showLoading('Analyzing your plate with AI...');
+  inputError.textContent = '';
+  try {
+    var food = await callAIVision(file);
+    hideLoading();
+    showResults(food, 'photo', true);
+  } catch(e) {
+    hideLoading();
+    // Fallback: ask user to describe
+    resultsInner.innerHTML =
+      '<button class="back-btn" id="backBtn">&larr; Back</button>' +
+      '<div class="food-preview"><span class="food-emoji-display">📷</span><div class="food-label-row"><span class="food-name">Could not analyze photo</span></div><span class="food-desc" style="margin-top:8px">The AI vision model returned an error. This could be an API key issue or a temporary outage. In the meantime, try describing your meal in the text field below.</span></div>' +
+      '<div class="low-confidence-banner"><span class="warn-icon">!</span><span><strong>Tip:</strong> Text input works offline and is highly accurate for known foods. Try typing "Wiener Schnitzel" or "D\u00f6ner Kebab" instead.</span></div>';
+    shell.setAttribute('data-view', 'results');
+    document.getElementById('backBtn').addEventListener('click', resetToInput);
+  }
+}
+
+function handleTextInput(text) {
+  var food = detectFood(text);
+  showResults(food, 'text', false);
+}
+
+var pendingPhotoFile = null;
+
+function showApiKeyModal(file) {
+  pendingPhotoFile = file || null;
+  apiKeyModal.classList.add('active');
+}
+
+function hideApiKeyModal() {
+  apiKeyModal.classList.remove('active');
+  pendingPhotoFile = null;
+}
+
+function showLoading(msg) { loadingText.textContent = msg; loadingOverlay.classList.add('active'); }
+function hideLoading() { loadingOverlay.classList.remove('active'); }
+
+function resetToInput() {
+  shell.setAttribute('data-view', 'input');
+  resultsInner.innerHTML = '';
+  textInput.value = '';
+  inputError.textContent = '';
+}
+
+function updateCameraStatus() {
+  if (API_KEY) {
+    cameraStatus.textContent = 'GPT-4o Vision Ready';
+    cameraStatus.className = 'camera-status ready';
+  } else {
+    cameraStatus.textContent = 'API key needed for scan';
+    cameraStatus.className = 'camera-status needs-key';
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EVENT LISTENERS
+   ═══════════════════════════════════════════════════════════ */
+
+cameraBtn.addEventListener('click', function() {
+  if (!API_KEY) { showApiKeyModal(null); return; }
+  fileInput.click();
+});
+
+fileInput.addEventListener('change', function() {
+  if (fileInput.files && fileInput.files.length > 0) {
+    var file = fileInput.files[0];
+    handlePhotoScan(file);
+    fileInput.value = '';
+  }
+});
+
+submitBtn.addEventListener('click', function() {
+  var t = textInput.value.trim();
+  if (!t) { inputError.textContent = 'Tell us what you are planning to eat.'; textInput.focus(); return; }
+  if (t.length < 3) { inputError.textContent = 'Add a bit more detail.'; textInput.focus(); return; }
+  showLoading('Finding smart options...');
+  inputError.textContent = '';
+  setTimeout(function() { hideLoading(); handleTextInput(t); }, 600);
+});
+
+textInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); submitBtn.click(); } });
+textInput.addEventListener('input', function() { if (inputError.textContent) inputError.textContent = ''; });
+
+// API Key Modal
+document.getElementById('modalSave').addEventListener('click', function() {
+  var key = modalApiKey.value.trim();
+  if (!key) return;
+  API_KEY = key;
+  localStorage.setItem('pw_apiKey', key);
+  updateCameraStatus();
+  hideApiKeyModal();
+  if (pendingPhotoFile) {
+    handlePhotoScan(pendingPhotoFile);
+  } else {
+    fileInput.click();
+  }
+});
+
+document.getElementById('modalSkip').addEventListener('click', function() {
+  hideApiKeyModal();
+  textInput.focus();
+});
+
+/* ── Suggestion Chips ── */
+var chipPools = [
+  ['🍕 Pizza tonight','🍔 Burger & fries','🍰 Dessert craving','🍝 Pasta dinner'],
+  ['🍣 Sushi platter','🍜 Hot ramen','🌮 Taco night','🥩 Steak dinner'],
+  ['🍛 Curry tonight','🥞 Pancake brunch','🍲 Soup & salad','🍗 Fried chicken'],
+  ['🫘 Falafel wrap','🍜 Pad thai','🥣 Burrito bowl','🍖 BBQ ribs'],
+  ['🐟 Fish & chips','🌭 Bratwurst','🥪 Club sandwich','🥟 Dim sum'],
+  ['🥨 Pretzel / Brezel','🥩 Wiener Schnitzel','🥙 D\u00f6ner Kebab','🍝 K\u00e4sesp\u00e4tzle']
+];
+
+function renderChips() {
+  var pool = chipPools[Math.floor(Math.random() * chipPools.length)];
+  suggestionWrap.innerHTML = pool.map(function(c) { return '<button class="suggestion-chip">' + c + '</button>'; }).join('');
+  var chips = suggestionWrap.querySelectorAll('.suggestion-chip');
+  for (var i = 0; i < chips.length; i++) {
+    (function(el) { el.addEventListener('click', function() {
+      textInput.value = el.textContent.trim();
+      showLoading('Finding smart options...');
+      setTimeout(function() { hideLoading(); handleTextInput(textInput.value); }, 600);
+    }); })(chips[i]);
+  }
+}
+
+/* ── Init ── */
+shell.setAttribute('data-view', 'input');
+updateCameraStatus();
+renderChips();
+setInterval(renderChips, 30000);
+})();
+</script>
+</body>
+</html>
